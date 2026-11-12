@@ -161,3 +161,18 @@ button:hover {
     background-color: rgb(233, 228, 245);
     color: rgb(75, 55, 120);
 }
+
+.notice-box {
+    margin-bottom: 20px;
+    padding: 18px 22px;
+    background-color: rgb(255, 255, 255);
+    border-left: 5px solid rgb(45, 105, 180);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.notice-box p {
+    margin: 6px 0;
+    line-height: 1.8;
+    font-size: 14px;
+}
