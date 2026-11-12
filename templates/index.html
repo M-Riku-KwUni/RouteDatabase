@@ -53,7 +53,27 @@
                     <span>{{ route["end_station"] }}</span>
             </div>
                 <p><strong>セクション数：</strong>{{ route["section_count"] }}</p>
-                <p><strong>前or打開orキノ3：</strong>{{ route["strategy"] }}</p>
+                <p class="strategy-row">
+                    <strong>前orキノ3or打開：</strong>
+                    {% if route["strategy"] in ["前", "打開", "キノ3", "前or打開", "前orキノ3", "キノ3or打開", "前orキノ3or打開", "両方"] %}
+                        {% if route["strategy"] == "両方" %}
+                            {% set strategy_items = ["前", "キノ3", "打開"] %}
+                        {% else %}
+                            {% set strategy_items = route["strategy"].split("or") %}
+                        {% endif %}
+                        {% for item in strategy_items %}
+                            {% if item == "前" %}
+                                <span class="strategy-tag strategy-front">前</span>
+                            {% elif item == "打開" %}
+                                <span class="strategy-tag strategy-comeback">打開</span>
+                            {% elif item == "キノ3" %}
+                                <span class="strategy-tag strategy-mushroom">キノ3</span>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <span>{{ route["strategy"] }}</span>
+                    {% endif %}
+                </p>
                 <p><strong>ルート：</strong>{{ route["route"] }}</p>
                 <p><strong>個人的メモ：</strong>{{ route["memo"] }}</p>
             </div>

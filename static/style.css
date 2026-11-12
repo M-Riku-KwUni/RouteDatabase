@@ -132,3 +132,32 @@ button:hover {
 .reset-button:hover {
     background-color: rgb(235, 240, 247);
 }
+
+.strategy-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.strategy-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.strategy-front {
+    background-color: rgb(228, 240, 250);
+    color: rgb(35, 75, 130);
+}
+
+.strategy-comeback {
+    background-color: rgb(252, 235, 217);
+    color: rgb(120, 70, 25);
+}
+
+.strategy-mushroom {
+    background-color: rgb(233, 228, 245);
+    color: rgb(75, 55, 120);
+}
