@@ -49,6 +49,9 @@ def index():
             ORDER BY end_station
         """).fetchall()
 
+    if start and end and end not in [row["end_station"] for row in destinations]:
+        end = ""
+
     if start or end:
         query = "SELECT * FROM routes WHERE 1=1"
         params = []
