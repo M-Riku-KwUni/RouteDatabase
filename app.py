@@ -33,6 +33,22 @@ def index():
 
     results = []
 
+    if start:
+        destinations = conn.execute("""
+            SELECT DISTINCT end_station
+            FROM routes
+            WHERE start_station = ?
+            AND end_station != ''
+            ORDER BY end_station
+        """, (start,)).fetchall()
+    else:
+        destinations = conn.execute("""
+            SELECT DISTINCT end_station
+            FROM routes
+            WHERE end_station != ''
+            ORDER BY end_station
+        """).fetchall()
+
     if start or end:
         query = "SELECT * FROM routes WHERE 1=1"
         params = []
@@ -52,6 +68,7 @@ def index():
     return render_template(
         "index.html",
         stations=[row["station"] for row in stations],
+        destinations=[row["end_station"] for row in destinations],
         results=results,
         start=start,
         end=end

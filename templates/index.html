@@ -14,7 +14,7 @@
     <div class=""search-box">    
         <form action="/" method="GET">
             <label for="start">発：</label>
-            <select name="start" id="start">
+            <select name="start" id="start" onchange="this.form.submit()">
                 <option value="">すべて</option>
                 {% for station in stations %}
                     <option value="{{ station }}"
@@ -27,7 +27,7 @@
             <label for="end">着：</label>
             <select name="end" id="end">
                 <option value="">すべて</option>
-                {% for station in stations %}
+                {% for station in destinations %}
                     <option value="{{ station }}"
                         {% if end == station %}selected{% endif %}>
                         {{ station }}
