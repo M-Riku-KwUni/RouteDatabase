@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Database</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class=""container">
+        <h1>Route Database</h1>
+
+    <div class=""search-box">    
+        <form action="/" method="GET">
+            <label for="start">発：</label>
+            <select name="start" id="start">
+                <option value="">すべて</option>
+                {% for station in stations %}
+                    <option value="{{ station }}"
+                        {% if start == station %}selected{% endif %}>
+                        {{ station }}
+                    </option>
+                {% endfor %}
+            </select>
+
+            <label for="end">着：</label>
+            <select name="end" id="end">
+                <option value="">すべて</option>
+                {% for station in stations %}
+                    <option value="{{ station }}"
+                        {% if end == station %}selected{% endif %}>
+                        {{ station }}
+                    </option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">検索</button>
+            <a href="/" class="reset-button">リセット</a>
+        </form>
+    </div>
+
+    <h2>検索結果</h2>
+
+    {% if results %}
+        <p class="result-count">{{ results|length }}件見つかりました。</p>
+
+        {% for route in results %}
+            <div class="result-card">
+                <div class="route-heading">
+                    <span>{{ route["start_station"] }}</span>
+                    <span class="route-arrow">→</span>
+                    <span>{{ route["end_station"] }}</span>
+            </div>
+                <p><strong>セクション数：</strong>{{ route["section_count"] }}</p>
+                <p><strong>前or打開orキノ3：</strong>{{ route["strategy"] }}</p>
+                <p><strong>ルート：</strong>{{ route["route"] }}</p>
+                <p><strong>個人的メモ：</strong>{{ route["memo"] }}</p>
+            </div>
+        {% endfor %}
+    {% elif start or end %}
+        <p>該当するルートはありません。</p>
+    {% else %}
+        <p>発と着を選択して検索してください。</p>
+    {% endif %}
+    </div>
+</body>
+</html>

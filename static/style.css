@@ -1,0 +1,134 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px 20px;
+    font-family: "Meiryo", sans-serif;
+    background-color: rgb(245, 247, 250);
+    color: rgb(40, 45, 55);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: rgb(35, 75, 130);
+    text-align: center;
+}
+
+h2 {
+    margin-top: 35px;
+    font-size: 22px;
+}
+
+.search-box {
+    padding: 25px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+select {
+    min-width: 150px;
+    padding: 10px;
+    border: 1px solid rgb(200, 205, 215);
+    border-radius: 6px;
+    background-color: white;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(45, 105, 180);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(30, 80, 145);
+}
+
+.result-card {
+    margin-bottom: 15px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow-wrap: anywhere;
+}
+
+.result-card p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.result-count {
+    color: rgb(90, 100, 115);
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    select,
+    button {
+        width: 100%;
+    }
+}
+
+.route-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(35, 75, 130);
+}
+
+.route-arrow {
+    color: rgb(110, 120, 135);
+    font-size: 20px;
+}
+
+.reset-button {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 1px solid rgb(180, 190, 205);
+    border-radius: 6px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(65, 75, 90);
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.reset-button:hover {
+    background-color: rgb(235, 240, 247);
+}
